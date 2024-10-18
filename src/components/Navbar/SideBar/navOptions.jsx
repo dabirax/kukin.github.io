@@ -1,11 +1,8 @@
 import React from "react";
 export function NavOptions({}) {
   return (
-    <ul
-      className="links flex-col
-    bg-red-500 capitalize"
-    >
-      <li className="text-center text-5xl font-serif font-bold">
+    <ul className="links flex-col capitalize text-4xl text-center font-serif font-bold gap-x-8 text-[#adadc9]">
+      <li className="">
         <a href="index.html">home</a>
       </li>
       <li>
