@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+
+import { CgDarkMode } from "react-icons/cg";
+import { MdOutlineDarkMode } from "react-icons/md";
 export function Theme() {
   const [theme, setTheme] = useState(null);
 
@@ -22,12 +25,12 @@ export function Theme() {
   };
 
   return (
-    <div className="h-screen bg-white dark:bg-black flex justify-center items-center">
+    <div className="">
       <button
-        className="dark:text-[#fdfdfd] bg-green-200 dark:bg-blue-800 p-4 rounded-3xl capitalize"
+        className="dark:text-[#fdfdfd]  bg-white dark:bg-black p-2 text-3xl rounded-4xl"
         onClick={handleTheme}
       >
-        dark mode
+        <MdOutlineDarkMode />
       </button>
     </div>
   );

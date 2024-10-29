@@ -1,18 +1,18 @@
 import React from "react";
 export function NavOptions({}) {
   return (
-    <ul className="links flex-col capitalize text-4xl text-center font-serif font-bold gap-x-8 text-[#adadc9]">
+    <ul className="links flex-col capitalize text-4xl text-center font-serif font-bold gap-x-8 text-[#adadc9] mt-14">
       <li className="">
-        <a href="index.html">home</a>
+        <a href="#">home</a>
       </li>
       <li>
-        <a href="about.html">about</a>
+        <a href="#">menu</a>
       </li>
       <li>
-        <a href="projects.html">projects</a>
+        <a href="#">articles</a>
       </li>
       <li>
-        <a href="contact.html">contact</a>
+        <a href="#">settings</a>
       </li>
     </ul>
   );

@@ -1,7 +1,7 @@
 import React from "react";
 export function Handles({}) {
   return (
-    <ul className="social-icons flex gap-8 text-3xl justify-center text-[#adadc9] ">
+    <ul className="social-icons flex gap-8 text-3xl justify-center text-[#adadc9] mt-36">
       <li className="">
         <a href="https://www.twitter.com">
           <i className="fab fa-facebook"></i>

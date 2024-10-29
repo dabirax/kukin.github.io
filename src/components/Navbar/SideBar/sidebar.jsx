@@ -1,15 +1,15 @@
 import React from "react";
 import { NavOptions } from "./navOptions";
 import { Handles } from "./handles";
-// import {toggle, setToggle} from "./App"
+
+import { MdFastfood } from "react-icons/md";
 import toggleLogo from "../../../assets/logo.svg";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export function Sidebar({ profile, handleNav }) {
   return (
-    <aside className="sidebar bg-[#322d39] absolute w-4/5 h-screen rounded-r-3xl">
+    <aside className="sidebar bg-[#322d39] absolute w-[96vw] md:w-52 lg:w-72 h-screen rounded-r-3xl transition duration-200">
       <button
-        className="text-5xl text-red-600  text-right  w-full pr-5 pt-3
+        className="text-5xl text-red-600  text-right  w-full pr-5 pt-3 md:hidden
           "
         onClick={handleNav}
       >
@@ -17,18 +17,19 @@ export function Sidebar({ profile, handleNav }) {
       </button>
       <img
         src={profile}
-        className=" rounded-full w-24 h-24 text-center m-auto"
+        className=" rounded-full w-24 h-24 text-center m-auto object-cover mt-8"
         alt="User Profile"
       />
       <NavOptions />
       <Handles />
-      <img
-        src={toggleLogo}
-        className="logo  w-[10rem] m-auto  text-red-500"
-        alt=""
-      />
-      <i class="fa-solid fa-burger"></i>
-      {/* <FontAwesomeIcon icon="fa-solid fa-burger" /> */}
+      <div className="text-center flex justify-center mt-2">
+        <div className="flex font-serif italic text-[#110a27] text-2xl">
+          KUKIN
+          <span className="text-red-500">
+            <MdFastfood />
+          </span>
+        </div>
+      </div>
     </aside>
   );
 }
