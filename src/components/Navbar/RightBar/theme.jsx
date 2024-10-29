@@ -27,7 +27,7 @@ export function Theme() {
   return (
     <div className="">
       <button
-        className="dark:text-[#fdfdfd]  bg-white dark:bg-black p-2 text-3xl rounded-4xl"
+        className="dark:text-[#fdfdfd]  bg-[#705e9b] dark:bg-[#201a41] p-2 text-3xl rounded-full"
         onClick={handleTheme}
       >
         <MdOutlineDarkMode />

@@ -20,7 +20,7 @@ export function Navbar({ profile }) {
 
   return (
     <>
-      <div className="flex justify-between">
+      <div className="flex justify-between w-full h-16 ">
         {(toggle || isMd || isLg) && (
           <Sidebar profile={profile} handleNav={handleNav} />
         )}
