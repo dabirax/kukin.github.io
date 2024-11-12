@@ -2,3 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components
+{
+    .container {
+        @apply md:ml-52 lg:ml-72
+    }
+}
