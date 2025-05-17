@@ -20,7 +20,7 @@ export function Navbar({ profile }) {
 
   return (
     <>
-      <div className="flex justify-between w-full h-16 ">
+      <div className=" flex justify-between w-full h-16 ">
         {(toggle || isMd || isLg) && (
           <Sidebar profile={profile} handleNav={handleNav} />
         )}
@@ -28,7 +28,7 @@ export function Navbar({ profile }) {
           <div>
             <div className="flex p-4">
               <button
-                className="sidebar-toggle dark:text-[#e2dddd] text-3xl"
+                className="sidebar-toggle md:hidden dark:text-[#e2dddd] text-3xl"
                 onClick={handleNav}
               >
                 <VscThreeBars />
@@ -37,7 +37,7 @@ export function Navbar({ profile }) {
           </div>
         )}
 
-        <div className="flex flex-row-reverse p-4 ">
+        <div className="flex flex-row-reverse p-4">
           <Theme />
           <Cart />
         </div>

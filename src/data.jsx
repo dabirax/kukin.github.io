@@ -1,0 +1,224 @@
+import img1 from "./assets/burger1.jpeg";
+import img2 from "./assets/burger2.jpeg";
+import img3 from "./assets/burger3.jpeg";
+import img4 from "./assets/burger4.jpeg";
+import img5 from "./assets/desert1.jpeg";
+import img6 from "./assets/desert2.jpeg";
+import img7 from "./assets/desert3.jpeg";
+import img8 from "./assets/desert4.jpeg";
+import img9 from "./assets/drinks1.jpeg";
+import img10 from "./assets/drinks2.jpeg";
+import img11 from "./assets/drinks3.jpeg";
+import img12 from "./assets/drinks4.jpeg";
+import img13 from "./assets/pizza1.jpeg";
+import img14 from "./assets/pizza2.jpeg";
+import img15 from "./assets/pizza3.jpeg";
+import img16 from "./assets/pizza4.jpeg";
+import img17 from "./assets/salad1.jpeg";
+import img18 from "./assets/salad2.jpeg";
+import img19 from "./assets/salad3.jpeg";
+import img20 from "./assets/salad4.jpeg";
+
+const data = [
+  {
+    id: 1,
+    foodType: "Burger",
+    name: "Classic Beef Burger",
+    desc: "Juicy grilled beef patty with lettuce, tomato, onions, pickles, and cheese in a toasted bun.",
+    rating: "⭐⭐⭐⭐",
+    price: 2500,
+    fav: true,
+    img: img1,
+  },
+  {
+    id: 2,
+    foodType: "Burger",
+    name: "Cheeseburger",
+    desc: "A timeless favorite topped with melted cheddar or American cheese, ketchup, mustard, and onions.",
+    rating: "⭐⭐⭐⭐",
+    price: 2500,
+    fav: false,
+    img: img2,
+  },
+  {
+    id: 3,
+    foodType: "Burger",
+    name: "Chicken Burger",
+    desc: "Crispy or grilled chicken breast with mayo, lettuce, and tomato for a lighter, flavorful option.",
+    rating: "⭐⭐⭐⭐",
+    price: 2500,
+    fav: false,
+    img: img3,
+  },
+  {
+    id: 4,
+    foodType: "burger",
+    name: "Veggie Burger",
+    desc: "A plant-based patty made from beans or vegetables, served with fresh greens and a zesty sauce.",
+    rating: "⭐⭐⭐⭐",
+    price: 2500,
+    fav: true,
+    img: img4,
+  },
+  {
+    id: 5,
+    foodType: "desert",
+    name: "Chocolate Cake",
+    desc: "Rich, moist layers of chocolate sponge filled and topped with smooth chocolate ganache.",
+    rating: "⭐⭐⭐⭐",
+    price: 2500,
+    fav: false,
+    img: img5,
+  },
+  {
+    id: 6,
+    foodType: "desert",
+    name: "Cheesecake",
+    desc: "Creamy and tangy cream cheese filling on a buttery graham cracker crust, often topped with fruit.",
+    rating: "⭐⭐⭐⭐",
+    price: 2500,
+    fav: false,
+    img: img6,
+  },
+  {
+    id: 7,
+    foodType: "desert",
+    name: "Apple Pie",
+    desc: "Classic dessert with spiced apple filling in a flaky, golden-brown crust, best served warm.",
+    rating: "⭐⭐⭐⭐",
+    price: 2500,
+    fav: false,
+    img: img7,
+  },
+  {
+    id: 8,
+    foodType: "desert",
+    name: "Ice Cream Sundae",
+    desc: "Scoops of ice cream topped with whipped cream, chocolate syrup, nuts, and a cherry on top.r",
+    rating: "⭐⭐⭐⭐",
+    price: 2500,
+    fav: false,
+    img: img8,
+  },
+  {
+    id: 9,
+    foodType: "drinks",
+    name: "Orange Juice",
+    desc: "Freshly squeezed or chilled, this vitamin-packed citrus drink is sweet, tangy, and energizing—great any time of day.",
+    rating: "⭐⭐⭐⭐",
+    price: 2500,
+    fav: false,
+    img: img9,
+  },
+  {
+    id: 10,
+    foodType: "drinks",
+    name: "Lemonade",
+    desc: "A cool, tangy-sweet blend of fresh lemons, sugar, and water—perfect for a hot day.",
+    rating: "⭐⭐⭐⭐",
+    price: 2500,
+    fav: false,
+    img: img10,
+  },
+  {
+    id: 11,
+    foodType: "drinks",
+    name: "Milkshake",
+    desc: "Creamy and thick, made with blended ice cream and milk, available in vanilla, chocolate, or strawberry flavors.r",
+    rating: "⭐⭐⭐⭐",
+    price: 2500,
+    fav: true,
+    img: img11,
+  },
+  {
+    id: 12,
+    foodType: "drinks",
+    name: "Iced Tea",
+    desc: "Chilled black or green tea served over ice, often sweetened and flavored with lemon or peach.",
+    rating: "⭐⭐⭐⭐",
+    price: 2500,
+    fav: false,
+    img: img12,
+  },
+  {
+    id: 13,
+    foodType: "pizza",
+    name: "Margherita Pizza",
+    desc: "A simple classic with tomato sauce, fresh mozzarella, and basil leaves on a thin crust.",
+    rating: "⭐⭐⭐⭐",
+    price: 2500,
+    fav: true,
+    img: img13,
+  },
+  {
+    id: 14,
+    foodType: "pizza",
+    name: "Pepperoni Pizza",
+    desc: "Loaded with spicy pepperoni slices over melted cheese and rich tomato sauce.",
+    rating: "⭐⭐⭐⭐",
+    price: 2500,
+    fav: true,
+    img: img14,
+  },
+  {
+    id: 15,
+    foodType: "pizza",
+    name: "Veggie Pizza",
+    desc: "A colorful mix of bell peppers, onions, mushrooms, olives, and tomatoes over tomato sauce and cheese.",
+    rating: "⭐⭐⭐⭐",
+    price: 2500,
+    fav: false,
+    img: img15,
+  },
+  {
+    id: 16,
+    foodType: "pizza",
+    name: "Meat Lovers Pizza",
+    desc: "Hearty and filling, topped with pepperoni, sausage, bacon, and ham on a cheesy crust.",
+    rating: "⭐⭐⭐⭐",
+    price: 2500,
+    fav: false,
+    img: img16,
+  },
+  {
+    id: 17,
+    foodType: "salad",
+    name: "Caesar Salad",
+    desc: "Nondisp subtrochnt fx right femur, init for opn fx type I/2",
+    rating: "⭐⭐⭐⭐",
+    price: 2500,
+    fav: false,
+    img: img17,
+  },
+  {
+    id: 18,
+    foodType: "salad",
+    name: "Greek Salad",
+    desc: "Nondisp subtrochnt fx right femur, init for opn fx type I/2",
+    rating: "⭐⭐⭐⭐",
+    price: 2500,
+    fav: false,
+    img: img18,
+  },
+  {
+    id: 19,
+    foodType: "salad",
+    name: "Garden Salad",
+    desc: "Nondisp subtrochnt fx right femur, init for opn fx type I/2",
+    rating: "⭐⭐⭐⭐",
+    price: 2500,
+    fav: false,
+    img: img19,
+  },
+  {
+    id: 20,
+    foodType: "salad",
+    name: "Chicken Salad",
+    desc: "Nondisp subtrochnt fx right femur, init for opn fx type I/2",
+    rating: "⭐⭐⭐⭐",
+    price: 2500,
+    fav: false,
+    img: img20,
+  },
+];
+export default data;

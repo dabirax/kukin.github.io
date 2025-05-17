@@ -1,11 +1,13 @@
 import React from "react";
 import { Navbar } from "../Navbar/navbar";
-import Hero from "../Content/Hero";
+import Hero from "./components/Hero";
+import Section from "./components/Section";
+
 export function Home({ profile }) {
   return (
-    <div className="h-screen bg-white dark:bg-[#05010f] ">
-      <Navbar profile={profile} />
+    <div className="container">
       <Hero />
+      <Section />
     </div>
   );
 }

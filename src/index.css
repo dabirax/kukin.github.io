@@ -1,10 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
-@layer components
-{
-    .container {
-        @apply md:ml-52 lg:ml-72
-    }
+
+
+@layer components {
+  .container {
+    @apply md:ml-52 lg:ml-72 p-5;
+  }
 }
