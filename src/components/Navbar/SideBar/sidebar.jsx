@@ -7,7 +7,7 @@ import toggleLogo from "../../../assets/logo.svg";
 
 export function Sidebar({ profile, handleNav }) {
   return (
-    <aside className=" sidebar bg-[#322d39] w-[96vw] md:w-52 lg:w-72 h-screen rounded-r-3xl transition duration-200 z-999">
+    <aside className="fixed bg-[#322d39] w-[96vw]  md:w-52 lg:w-72 h-screen rounded-r-3xl transition duration-200 z-999">
       <button
         className="text-5xl text-red-600  text-right  w-full pr-5 pt-3 md:hidden
           "

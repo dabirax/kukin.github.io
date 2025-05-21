@@ -5,6 +5,6 @@
 
 @layer components {
   .container {
-    @apply md:ml-52 lg:ml-72 p-5;
+    @apply md:pl-56 lg:pl-80 p-5;
   }
 }

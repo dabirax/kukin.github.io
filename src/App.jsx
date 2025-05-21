@@ -6,28 +6,26 @@ import Menu from "./components/Menu/Menu";
 import Articles from "./components/Articles/articles";
 import Settings from "./components/Settings/settings";
 import { Navbar } from "./components/Navbar/navbar";
-import Category from "./components/Menu/categories/Cgory";
+import Category from "./components/Menu/components/Cgory";
+import bgImg from './assets/bgImg.jpg'
 
 function App() {
   return (
     <>
-      <div className="h-screen bg-white dark:bg-[#05010f] relative">
+      <div
+        style={{ backgroundImage: `url(${bgImg})` }}
+        className="min-h-screen	bg-fixed bg-cover bg-center bg-white dark:bg-[#05010f] relative"
+      >
         <Navbar profile={profile} />
         <Routes>
-          <Route path="/" element={<Home profile={profile} />} />
-          <Route path="/menu" element={<Menu profile={profile} />}>
-            {/* <Route index={<Menu profile={profile} />} /> */}
-            <Route path="/menu/category" element={<Category profile={profile} />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/menu" element={<Menu />}>
+            <Route index={<Menu />} />
           </Route>
 
-          <Route
-            path="articles"
-            element={<Articles profile={profile} />}
-          ></Route>
-          <Route
-            path="settings"
-            element={<Settings profile={profile} />}
-          ></Route>
+          <Route path="/menu/category" element={<Category />} />
+          <Route path="articles" element={<Articles />}></Route>
+          <Route path="settings" element={<Settings />}></Route>
         </Routes>
       </div>
     </>
