@@ -28,7 +28,7 @@ export function Navbar({ profile }) {
           <div>
             <div className="flex p-4">
               <button
-                className="sidebar-toggle md:hidden dark:text-[#e2dddd] text-3xl"
+                className="sidebar-toggle md:hidden dark:text-[#e2dddd] text-3xl text-[#1ABC9C] hover:scale-110"
                 onClick={handleNav}
               >
                 <VscThreeBars />

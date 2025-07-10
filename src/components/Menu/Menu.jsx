@@ -63,18 +63,18 @@ const Menu = () => {
               <div
                 key={id}
                 className={`py-5 
-                  pl-5 bg-gradient-to-br from-gray-800/90 to-gray-800/70 text-white rounded-3xl relative h-[320px] w-72 flex flex-col items-start`}
+                  pl-5 bg-gradient-to-br from-slate-800 to-slate-900 text-white rounded-3xl relative h-[320px] w-72 flex flex-col items-start shadow-2xl`}
               >
                 <div className="mb-4">
-                  <p className="text-4xl xl:text-5xl font-bold opacity-20 mb-4">
+                  <p className="text-4xl xl:text-5xl font-bold opacity-40 mb-4">
                     {title}
                   </p>
                   <div>
                     <Link to="/menu/category" state={{ data, accessor }}>
                       <Button
                         text="Check out"
-                        bgColor="bg-red-500"
-                        textColor={`text-white dark:text-gray-800/70 `}
+                        bgColor="bg-[#1ABC9C]/50"
+                        textColor={`text-[#CED4DA] dark:text-gray-800/70 `}
                       />
                     </Link>
                   </div>
@@ -93,7 +93,7 @@ const Menu = () => {
             return (
               <div
                 key={category.id}
-                className={`py-5 pl-5 bg-gradient-to-br from-gray-800/90 to-gray-800/70  text-white rounded-3xl relative h-[320px] w-72 flex flex-col items-end`}
+                className={`py-5 pl-5 bg-gradient-to-br from-slate-800 to-slate-900	 text-white rounded-3xl relative h-[320px] w-72 flex flex-col items-end shadow-2xl`}
               >
                 <div>
                   <img
@@ -107,13 +107,14 @@ const Menu = () => {
                     {category.title}
                   </p>
                   <div>
-                  <Link to="/menu/category" state={{ data, accessor }}>
-                    <Button
-                      text="Check out"
-                      bgColor="bg-red-500"
-                      textColor={`text-white dark:text-gray-800/70 `}
-                    />
-                  </Link></div>
+                    <Link to="/menu/category" state={{ data, accessor }}>
+                      <Button
+                        text="Check out"
+                        bgColor="bg-[#1ABC9C]/50"
+                        textColor={`text-[#CED4DA] dark:text-gray-800/70 `}
+                      />
+                    </Link>
+                  </div>
                 </div>
               </div>
             );

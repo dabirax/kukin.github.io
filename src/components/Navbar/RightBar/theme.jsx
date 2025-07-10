@@ -32,7 +32,7 @@ export function Theme() {
   return (
     <div className="">
       <button
-        className="dark:text-[#fdfdfd]  bg-[#705e9b] dark:bg-[#201a41] p-2 text-3xl rounded-full"
+        className="dark:text-[#fdfdfd]  bg-[#CED4DA] dark:bg-[#201a41] p-2 text-3xl rounded-full  hover:scale-110"
         onClick={handleTheme}
       >
         <MdOutlineDarkMode />
