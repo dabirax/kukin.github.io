@@ -7,7 +7,7 @@ import Articles from "./components/Articles/articles";
 import Settings from "./components/Settings/settings";
 import { Navbar } from "./components/Navbar/navbar";
 import Category from "./components/Menu/components/Cgory";
-import bgImg from "./assets/bgImg.jpg";
+import Cart from "./components/Cart/Cart";
 
 function App() {
   return (
@@ -26,6 +26,7 @@ function App() {
           <Route path="articles" element={<Articles />}></Route>
           <Route path="settings" element={<Settings />}></Route>
         </Routes>
+        <Cart />
       </div>
     </>
   );

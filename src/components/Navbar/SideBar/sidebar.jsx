@@ -3,15 +3,21 @@ import { NavOptions } from "./navOptions";
 import { Handles } from "./handles";
 
 import { MdFastfood } from "react-icons/md";
-import toggleLogo from "../../../assets/logo.svg";
+import { useGlobalContext } from "../../../context";
 
-export function Sidebar({ profile, handleNav }) {
+export function Sidebar({ profile }) {
+  const { closeSidebar, isSidebarOpen } = useGlobalContext(); 
+  /**/
   return (
-    <div className="absolute z-999 w-screen backdrop-blur-xs">
-      <aside className=" bg-[#1E1E2F] w-[70vw]  md:w-52 h-screen rounded-r-3xl transition duration-200 ">
+    <div
+      className={`fixed z-600 ${
+        isSidebarOpen ? "backdrop-blur-xs  w-screen" : ""
+      }`}
+    >
+      <aside className=" bg-[#1E1E2F] w-[70vw] pt-5  md:w-52 h-screen rounded-r-3xl transition duration-200  ">
         <button
           className="text-5xl text-red-600  text-right  w-full pr-5 pt-3 md:hidden"
-          onClick={handleNav}
+          onClick={closeSidebar}
         >
           <i className="fas fa-times"></i>
         </button>

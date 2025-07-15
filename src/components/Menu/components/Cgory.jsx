@@ -5,10 +5,8 @@ import { Heart, CirclePlus } from "lucide-react";
 const Category = () => {
   const location = useLocation();
   const { data, accessor } = location.state;
-  console.log(accessor);
 
   const categorizedItems = data.filter((item) => item.foodType === accessor);
-  console.log(categorizedItems);
 
   return (
     <div className="container text-[#CED4DA]">

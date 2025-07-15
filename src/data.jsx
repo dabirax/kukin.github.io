@@ -23,7 +23,7 @@ const data = [
   {
     id: 1,
     foodType: "burger",
-    name: "Classic Beef Burger",
+    name: "Beef Burger",
     desc: "Juicy grilled beef patty with lettuce, tomato, onions, pickles, and cheese in a toasted bun.",
     rating: "⭐⭐⭐⭐",
     price: 2500,
