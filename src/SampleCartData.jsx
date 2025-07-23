@@ -12,6 +12,7 @@ const SampleCartData = [
     price: 2500,
     fav: true,
     img: img1,
+    amount: 1,
   },
   {
     id: 2,
@@ -22,6 +23,7 @@ const SampleCartData = [
     price: 2500,
     fav: false,
     img: img2,
+    amount: 1,
   },
   {
     id: 3,
@@ -32,9 +34,10 @@ const SampleCartData = [
     price: 2500,
     fav: false,
     img: img3,
+    amount: 1,
   },
   {
-    id: 3,
+    id: 4,
     foodType: "burger",
     name: "Chicken Burger",
     desc: "Crispy or grilled chicken breast with mayo, lettuce, and tomato for a lighter, flavorful option.",
@@ -42,6 +45,7 @@ const SampleCartData = [
     price: 2500,
     fav: false,
     img: img3,
+    amount: 1,
   },
 ];
 export default SampleCartData;

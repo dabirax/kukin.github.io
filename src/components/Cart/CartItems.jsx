@@ -1,14 +1,12 @@
-import React from "react";
-import SampleCartData from "../../SampleCartData.jsx";
 import { Heart, Trash2, Minus, Plus } from "lucide-react";
 import { useGlobalContext } from "../../context.jsx";
 
 const CartItems = () => {
-    const { removeItem, cart } = useGlobalContext();
+  const { removeItem, cart, increase, decrease } = useGlobalContext();
   return (
     <div>
       {cart.map((item) => {
-        const { id, name, price, img } = item;
+        const { id, name, price, img, amount } = item;
         return (
           <>
             <div
@@ -29,22 +27,27 @@ const CartItems = () => {
                     <span>
                       <Heart />
                     </span>
-                    <span className="flex items-center gap-3  bg-slate-800 text-[#CED4DA] text-sm p-1 rounded-full font-semibold">
-                      <span>
-                        <Minus size={14}/>
-                      </span>
-                      <span>1</span>
-                      <span>
-                        <Plus size={14}/>
-                      </span>
+                    <span className="flex items-center gap-3  bg-slate-800 text-[#CED4DA] text-sm px-2 py-1 rounded-full font-semibold">
+                        {/* Increase */}
+                      <button onClick={() => decrease(id)}>
+                        <Minus size={14} />
+                      </button>
+                        {/* Amount */}
+                      <span>{amount}</span>
+                      {/* Decrease */}
+                      <button onClick={() => increase(id)}>
+                        <Plus size={14} />
+                      </button>
                     </span>
                     <span>
-                      <Trash2 />
+                      <button onClick={() => removeItem(id)}>
+                        <Trash2 />
+                      </button>
                     </span>
                   </div>
                 </div>
               </div>
-              <div> ₦ 400</div>
+              <div> ₦ {amount * price}</div>
             </div>
           </>
         );

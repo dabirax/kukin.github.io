@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <div
-        // style={{ backgroundImage: `url(${bgImg})` }}
+        
         className="min-h-screen bg-slate-800 dark:bg-[#05010f] relative"
       >
         <Navbar profile={profile} />
