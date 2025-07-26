@@ -29,6 +29,7 @@ const data = [
     price: 2500,
     fav: true,
     img: img1,
+    amount: 1,
   },
   {
     id: 2,
@@ -39,6 +40,7 @@ const data = [
     price: 2500,
     fav: false,
     img: img2,
+    amount: 1,
   },
   {
     id: 3,
@@ -49,6 +51,7 @@ const data = [
     price: 2500,
     fav: false,
     img: img3,
+    amount: 1,
   },
   {
     id: 3,
@@ -59,6 +62,7 @@ const data = [
     price: 2500,
     fav: false,
     img: img3,
+    amount: 1,
   },
   {
     id: 4,
@@ -69,6 +73,7 @@ const data = [
     price: 2500,
     fav: true,
     img: img4,
+    amount: 1,
   },
   {
     id: 4,
@@ -79,6 +84,7 @@ const data = [
     price: 2500,
     fav: true,
     img: img4,
+    amount: 1,
   },
   {
     id: 5,
@@ -89,6 +95,7 @@ const data = [
     price: 2500,
     fav: false,
     img: img5,
+    amount: 1,
   },
   {
     id: 6,
@@ -99,6 +106,7 @@ const data = [
     price: 2500,
     fav: false,
     img: img6,
+    amount: 1,
   },
   {
     id: 7,
@@ -109,6 +117,7 @@ const data = [
     price: 2500,
     fav: false,
     img: img7,
+    amount: 1,
   },
   {
     id: 8,
@@ -119,6 +128,7 @@ const data = [
     price: 2500,
     fav: false,
     img: img8,
+    amount: 1,
   },
   {
     id: 7,
@@ -129,6 +139,7 @@ const data = [
     price: 2500,
     fav: false,
     img: img7,
+    amount: 1,
   },
   {
     id: 8,
@@ -139,6 +150,7 @@ const data = [
     price: 2500,
     fav: false,
     img: img8,
+    amount: 1,
   },
   {
     id: 9,
@@ -149,6 +161,7 @@ const data = [
     price: 2500,
     fav: false,
     img: img9,
+    amount: 1,
   },
   {
     id: 10,
@@ -159,6 +172,7 @@ const data = [
     price: 2500,
     fav: false,
     img: img10,
+    amount: 1,
   },
   {
     id: 11,
@@ -169,6 +183,7 @@ const data = [
     price: 2500,
     fav: true,
     img: img11,
+    amount: 1,
   },
   {
     id: 12,
@@ -179,6 +194,7 @@ const data = [
     price: 2500,
     fav: false,
     img: img12,
+    amount: 1,
   },
   {
     id: 11,
@@ -189,6 +205,7 @@ const data = [
     price: 2500,
     fav: true,
     img: img11,
+    amount: 1,
   },
   {
     id: 12,
@@ -199,6 +216,7 @@ const data = [
     price: 2500,
     fav: false,
     img: img12,
+    amount: 1,
   },
   {
     id: 13,
@@ -209,6 +227,7 @@ const data = [
     price: 2500,
     fav: true,
     img: img13,
+    amount: 1,
   },
   {
     id: 14,
@@ -219,6 +238,7 @@ const data = [
     price: 2500,
     fav: true,
     img: img14,
+    amount: 1,
   },
   {
     id: 15,
@@ -229,6 +249,7 @@ const data = [
     price: 2500,
     fav: false,
     img: img15,
+    amount: 1,
   },
   {
     id: 16,
@@ -239,6 +260,7 @@ const data = [
     price: 2500,
     fav: false,
     img: img16,
+    amount: 1,
   },
   {
     id: 15,
@@ -249,6 +271,7 @@ const data = [
     price: 2500,
     fav: false,
     img: img15,
+    amount: 1,
   },
   {
     id: 16,
@@ -259,6 +282,7 @@ const data = [
     price: 2500,
     fav: false,
     img: img16,
+    amount: 1,
   },
   {
     id: 17,
@@ -269,6 +293,7 @@ const data = [
     price: 2500,
     fav: false,
     img: img17,
+    amount: 1,
   },
   {
     id: 18,
@@ -279,6 +304,7 @@ const data = [
     price: 2500,
     fav: false,
     img: img18,
+    amount: 1,
   },
   {
     id: 19,
@@ -289,6 +315,7 @@ const data = [
     price: 2500,
     fav: false,
     img: img19,
+    amount: 1,
   },
   {
     id: 20,
@@ -299,6 +326,7 @@ const data = [
     price: 2500,
     fav: false,
     img: img20,
+    amount: 1,
   },
   {
     id: 19,
@@ -309,6 +337,7 @@ const data = [
     price: 2500,
     fav: false,
     img: img19,
+    amount: 1,
   },
   {
     id: 20,
@@ -319,6 +348,8 @@ const data = [
     price: 2500,
     fav: false,
     img: img20,
+    amount: 1,
   },
 ];
+
 export default data;

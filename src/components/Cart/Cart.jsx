@@ -7,7 +7,7 @@ import { CartIcon } from "../Navbar/RightBar/cartIcon";
 import OrderSummary from "./OrderSummary";
 
 const Cart = () => {
-  const { isCartOpen, closeCart } = useGlobalContext();
+  const { isCartOpen, closeCart, cart } = useGlobalContext();
   return (
     <div
       className={`fixed top-0 left-0 w-screen h-screen font-poppins backdrop-blur-xs z-800 flex items-center justify-center ${
@@ -28,6 +28,15 @@ const Cart = () => {
             <FaTimes />
           </button>
         </div>
+        
+  {cart.length === 0 ? (
+      <div className="flex justify-center items-center h-full">
+        <div className="text-4xl font-semibold text-gray-700">
+          Your cart is empty
+        </div>
+      </div>
+    ) : (
+  
         <div className="grid grid-cols-3 gap-16 h-full p-5">
           {/* Cart Items */}
           <div className="col-span-2 overflow-y-auto h-full">
@@ -38,7 +47,7 @@ const Cart = () => {
           <div>
             <OrderSummary />
           </div>
-        </div>
+        </div>)}
       </div>
     </div>
   );

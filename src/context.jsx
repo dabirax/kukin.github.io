@@ -1,6 +1,6 @@
 import React, { useState, useContext, useReducer, useEffect } from "react";
-import SampleCartData from "./SampleCartData";
-import reducer from "./components/Cart/reducer.jsx";
+import SampleCartData from "./CartData.jsx";
+import reducer from "./reducer.jsx";
 
 const AppContext = React.createContext();
 
@@ -36,6 +36,10 @@ const AppProvider = ({ children }) => {
   const removeItem = (id) => {
     dispatch({ type: "REMOVE", payload: id });
   };
+
+  const addItem = (id) => {
+    dispatch({ type: "ADD", payload: id });
+  };
   
   const increase = (id) => {
     dispatch({ type: "INCREASE", payload: id });
@@ -49,7 +53,7 @@ const AppProvider = ({ children }) => {
 
   const fetchData = async () => {
     dispatch({ type: "LOADING" });
-    dispatch({ type: "DISPLAY_ITEMS", payload: cart });
+    dispatch({ type: "DISPLAY_ITEMS", payload: initialState.cart });
   };
 
   useEffect(() => {
@@ -73,6 +77,7 @@ const AppProvider = ({ children }) => {
         removeItem,
         increase,
         decrease,
+        addItem,
       }}
     >
       {children}

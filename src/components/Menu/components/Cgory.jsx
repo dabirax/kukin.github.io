@@ -1,10 +1,13 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { Heart, CirclePlus } from "lucide-react";
+import { useGlobalContext } from "../../../context.jsx";
 
 const Category = () => {
   const location = useLocation();
   const { data, accessor } = location.state;
+  const { addItem } = useGlobalContext();
+
 
   const categorizedItems = data.filter((item) => item.foodType === accessor);
 
@@ -41,7 +44,7 @@ const Category = () => {
                 {/* Rating and Add to Cart */}
                 <div className="flex justify-between">
                   <div>{rating}</div>{" "}
-                  <button>
+                  <button onClick={() => addItem(id)}>
                     <CirclePlus />
                   </button>
                 </div>

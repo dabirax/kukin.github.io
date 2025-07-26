@@ -72,7 +72,7 @@ const Menu = () => {
                   <div>
                     <Link to="/menu/category" state={{ data, accessor }}>
                       <Button
-                        text="Check out"
+                        text="Explore"
                         bgColor="bg-[#1ABC9C]/50"
                         textColor={`text-[#CED4DA] dark:text-gray-800/70 `}
                       />
@@ -109,7 +109,7 @@ const Menu = () => {
                   <div>
                     <Link to="/menu/category" state={{ data, accessor }}>
                       <Button
-                        text="Check out"
+                        text="Explore"
                         bgColor="bg-[#1ABC9C]/50"
                         textColor={`text-[#CED4DA] dark:text-gray-800/70 `}
                       />

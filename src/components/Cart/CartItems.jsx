@@ -3,6 +3,7 @@ import { useGlobalContext } from "../../context.jsx";
 
 const CartItems = () => {
   const { removeItem, cart, increase, decrease } = useGlobalContext();
+
   return (
     <div>
       {cart.map((item) => {
@@ -28,11 +29,11 @@ const CartItems = () => {
                       <Heart />
                     </span>
                     <span className="flex items-center gap-3  bg-slate-800 text-[#CED4DA] text-sm px-2 py-1 rounded-full font-semibold">
-                        {/* Increase */}
+                      {/* Increase */}
                       <button onClick={() => decrease(id)}>
                         <Minus size={14} />
                       </button>
-                        {/* Amount */}
+                      {/* Amount */}
                       <span>{amount}</span>
                       {/* Decrease */}
                       <button onClick={() => increase(id)}>
