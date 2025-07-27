@@ -46,7 +46,7 @@ const reducer = (state, action) => {
 
     return { ...state, cart: tempCart };
   }
-
+// Get total price of items in the cart
   if (action.type === "GET_TOTALS") {
     let { subtotal, noOfItems } = state.cart.reduce(
       (cartTotal, cartItem) => {
