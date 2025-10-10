@@ -1,4 +1,4 @@
-
+import React from "react";
 import { useGlobalContext } from "../../context";
 import Button from "../Shared/Button";
 
@@ -7,7 +7,7 @@ const OrderSummary = () => {
   const deliveryFee = 4500; // Example delivery fee
   const total = subtotal + deliveryFee;
   return (
-    <div className="bg-slate-800 text-[#CED4DA] p-4 rounded-lg shadow-l min-w-50">
+    <div className="bg-slate-800 text-[#CED4DA] p-4 rounded-lg shadow-lg">
       {/* Title */}
       <div>
         <h1 className="underline font-semibold text-2xl text-center">

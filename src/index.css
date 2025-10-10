@@ -7,7 +7,7 @@
 
 @layer components {
   .container {
-    @apply lg:pl-60 p-5 ;
+    @apply md:pl-60 p-5 ;
   font-family: "Poppins", sans-serif;
   }
 }

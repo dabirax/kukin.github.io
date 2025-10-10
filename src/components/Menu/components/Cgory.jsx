@@ -8,16 +8,17 @@ const Category = () => {
   const { data, accessor } = location.state;
   const { addItem } = useGlobalContext();
 
+
   const categorizedItems = data.filter((item) => item.foodType === accessor);
 
   return (
-    <div className="container text-[#CED4DA] mx-auto">
+    <div className="container text-[#CED4DA]">
       {/* Items in the current category */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 place-items-center gap-8 px-4 ">
+      <div className=" grid grid-cols-2  md:grid-cols-3 xl:grid-cols-4 place-items-center gap-1 ">
         {categorizedItems.map((item) => {
           const { id, name, img, price, rating } = item;
           return (
-            <div key={id} className="w-full max-w-[200px]">
+            <div key={id} className="w-40 ">
               {/* Image */}
               <div>
                 <img
@@ -30,23 +31,20 @@ const Category = () => {
               {/* Details */}
               <div className="bg-gray-900 rounded-2xl -translate-y-4 p-2 flex flex-col gap-2 shadow-2xl">
                 {/* Name */}
-                <div className="text-center font-semibold text-sm">{name}</div>
+                <div className="text-center">{name}</div>
 
                 {/* Price and Favorite */}
-                <div className="flex justify-between items-center text-sm">
+                <div className="flex justify-between">
                   <div>₦ {price}</div>
-                  <button className="hover:text-red-500">
+                  <button>
                     <Heart />
                   </button>
                 </div>
 
                 {/* Rating and Add to Cart */}
-                <div className="flex justify-between items-center text-sm">
-                  <div>{rating}</div>
-                  <button
-                    className="hover:text-green-500"
-                    onClick={() => addItem(id)}
-                  >
+                <div className="flex justify-between">
+                  <div>{rating}</div>{" "}
+                  <button onClick={() => addItem(id)}>
                     <CirclePlus />
                   </button>
                 </div>

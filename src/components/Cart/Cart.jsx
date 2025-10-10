@@ -14,8 +14,6 @@ const Cart = () => {
         isCartOpen ? "block" : "hidden"
       } `}
     >
-
-      {/* Cart Content  */}
       <div className="bg-[#CED4DA] w-3/4  h-3/4 rounded-lg shadow-lg relative p-5 ">
         <div className=" w-full flex">
           <div className="flex items-center justify-center w-full  gap-3">
@@ -39,14 +37,14 @@ const Cart = () => {
       </div>
     ) : (
   
-        <div className="grid grid-cols-2 md:grid-cols-3  gap-16 h-full p-5">
+        <div className="grid grid-cols-3 gap-16 h-full p-5">
           {/* Cart Items */}
-          <div className="col-span-3 lg:col-span-2 overflow-y-auto h-full">
+          <div className="col-span-2 overflow-y-auto h-full">
             <CartItems />
           </div>
 
           {/* Order Summary} */}
-          <div className="mx-auto col-span-3 lg:col-span-1">
+          <div>
             <OrderSummary />
           </div>
         </div>)}

@@ -1,6 +1,5 @@
 import { Home } from "./components/Home/Home";
 import { Route, Routes } from "react-router-dom";
-import { motion } from "framer-motion";
 import profile from "./assets/profile.jpeg";
 import "./App.css";
 import Menu from "./components/Menu/Menu";

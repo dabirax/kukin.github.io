@@ -1,8 +1,8 @@
-
+import React from "react";
 import { Link } from "react-router-dom";
-export function NavOptions() {
+export function NavOptions({}) {
   return (
-    <ul className="links flex-col capitalize text-2xl text-center  font-bold text-[#CED4DA] mt-4">
+    <ul className="links flex-col capitalize text-2xl text-center  font-bold text-[#CED4DA] mt-14">
       <li className="hover:scale-110 duration-200 hover:text-[#1ABC9C]">
         <Link to="/">home</Link>
       </li>

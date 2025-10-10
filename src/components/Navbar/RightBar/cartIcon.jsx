@@ -6,7 +6,7 @@ export function CartIcon({color}) {
   const { noOfItems } = useGlobalContext();
   return (
     <div className="relative w-fit h-fit">
-      <FaCartShopping className={`dark:text-[#fdfdfd] transition-transform text-3xl ${
+      <FaCartShopping className={`dark:text-[#fdfdfd] transition-transform hover:scale-110 text-3xl ${
           color === "dark" ? "text-slate-800" : " text-[#CED4DA] "
         }`} />
       <span
