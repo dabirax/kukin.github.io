@@ -1,4 +1,4 @@
-import React from "react";
+
 import { NavOptions } from "./navOptions";
 import { Handles } from "./handles";
 

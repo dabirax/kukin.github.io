@@ -1,16 +1,12 @@
 import { CartIcon } from "./RightBar/cartIcon";
-import React from "react";
 import { Theme } from "./RightBar/theme";
 import { Sidebar } from "./SideBar/sidebar";
-import { useEffect, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
 import { useGlobalContext } from "../../context";
 
 import { VscThreeBars } from "react-icons/vsc";
 
 export function Navbar({ profile }) {
-  const [toggle, setToggle] = useState(false);
-  const isSm = useMediaQuery("(max-width: 767px)");
   const isMd = useMediaQuery("(min-width: 768px) and (max-width: 1023px)");
   const isLg = useMediaQuery("(min-width: 1024px)");
 

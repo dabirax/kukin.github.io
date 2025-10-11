@@ -1,4 +1,3 @@
-import React from "react";
 import { useLocation } from "react-router-dom";
 import { Heart, CirclePlus } from "lucide-react";
 import { useGlobalContext } from "../../../context.jsx";

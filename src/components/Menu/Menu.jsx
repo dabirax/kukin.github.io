@@ -1,4 +1,3 @@
-import { Navbar } from "../Navbar/navbar";
 import Button from "../Shared/Button.jsx";
 import data from "../../data.jsx";
 
@@ -8,8 +7,7 @@ import DessertsRep from "../../assets/dessertsRep.png";
 import DrinksRep from "../../assets/drinksRep.png";
 import PizzasRep from "../../assets/pizzaRep.png";
 
-import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const menuCategories = [
   {
@@ -54,9 +52,9 @@ const Menu = () => {
     <div className="container mt-8">
       <div className="grid grid-cols-1 justify-items-center sm:grid-cols-2 lg:grid-cols-3 gap-8 ">
         {/* First Col */}
-        {menuCategories.map((category, index) => {
+        {menuCategories.map((category) => {
           // console.log(category.bgColor);
-          const { id, title, image, bgColor, accessor } = category;
+          const { id, title, image, accessor } = category;
 
           if (category.id % 2 !== 0) {
             return (

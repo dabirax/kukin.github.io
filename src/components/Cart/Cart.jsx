@@ -1,7 +1,6 @@
-import React from "react";
+
 import { useGlobalContext } from "../../context";
 import { FaTimes } from "react-icons/fa";
-import { FaCartShopping } from "react-icons/fa6";
 import CartItems from "./CartItems";
 import { CartIcon } from "../Navbar/RightBar/cartIcon";
 import OrderSummary from "./OrderSummary";
