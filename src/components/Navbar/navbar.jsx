@@ -6,7 +6,7 @@ import { useGlobalContext } from "../../context";
 
 import { VscThreeBars } from "react-icons/vsc";
 
-export function Navbar({ profile }) {
+export function Navbar( profile ) {
   const isMd = useMediaQuery("(min-width: 768px) and (max-width: 1023px)");
   const isLg = useMediaQuery("(min-width: 1024px)");
 
