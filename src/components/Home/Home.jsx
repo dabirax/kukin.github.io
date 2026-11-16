@@ -1,9 +1,7 @@
-import React from "react";
-import { Navbar } from "../Navbar/navbar";
 import Hero from "./components/Hero";
 import Section from "./components/Section";
 
-export function Home({ profile }) {
+export function Home() {
   return (
     <div className="container">
       <Hero />

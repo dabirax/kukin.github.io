@@ -1,24 +1,33 @@
 import { CartIcon } from "./RightBar/cartIcon";
 import { Theme } from "./RightBar/theme";
+import { AccountMenu } from "./RightBar/account";
 import { Sidebar } from "./SideBar/sidebar";
 import { useMediaQuery } from "usehooks-ts";
-import { useGlobalContext } from "../../context";
+import { useGlobalContext } from "../../useGlobalContext.js";
+import { useAuth } from "../../auth/useAuth.js";
 
 import { VscThreeBars } from "react-icons/vsc";
 
-export function Navbar( profile ) {
+export function Navbar({ profile }) {
   const isMd = useMediaQuery("(min-width: 768px) and (max-width: 1023px)");
   const isLg = useMediaQuery("(min-width: 1024px)");
 
- 
-
   const { openCart, isSidebarOpen, openSidebar } = useGlobalContext();
+  const { isAuthenticated, openAuth } = useAuth();
+
+  const handleCartClick = () => {
+    if (!isAuthenticated) {
+      openAuth("login", { notice: "Sign in to start your order." });
+      return;
+    }
+
+    openCart();
+  };
+
   return (
     <>
       <div className=" flex justify-between w-full h-16 ">
-        {(isSidebarOpen || isMd || isLg) && (
-          <Sidebar profile={profile}  />
-        )}
+        {(isSidebarOpen || isMd || isLg) && <Sidebar profile={profile} />}
         {!isSidebarOpen && (
           <div>
             <div className="flex p-4">
@@ -34,9 +43,14 @@ export function Navbar( profile ) {
 
         <div className="flex flex-row-reverse justify-center items-center gap-3 p-4">
           <Theme />
-          <button onClick={openCart}>
+          <button type="button" onClick={handleCartClick} aria-label="Open cart">
             <CartIcon />
           </button>
+          {!isSidebarOpen && (
+            <div className="md:hidden">
+              <AccountMenu profile={profile} />
+            </div>
+          )}
         </div>
       </div>
     </>

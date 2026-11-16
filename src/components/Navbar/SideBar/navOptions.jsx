@@ -10,10 +10,10 @@ export function NavOptions() {
         <Link to="/menu">menu</Link>
       </li>
       <li className="hover:scale-110 duration-200 hover:text-[#1ABC9C]">
-        <a href="/articles">articles</a>
+        <Link to="/articles">articles</Link>
       </li>
       <li className="hover:scale-110 duration-200 hover:text-[#1ABC9C]">
-        <a href="/settings">settings</a>
+        <Link to="/settings">settings</Link>
       </li>
     </ul>
   );

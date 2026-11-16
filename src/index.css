@@ -1,13 +1,51 @@
-@import "tailwindcss";
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
-
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
+@import "tailwindcss";
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+html {
+  font-size: 125%;
+}
+
+@theme {
+  --animate-shake: shake 0.5s ease-in-out;
+  --animate-toast-in: toast-in 0.3s ease-out;
+
+  @keyframes shake {
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+    20% {
+      transform: rotate(-12deg);
+    }
+    40% {
+      transform: rotate(10deg);
+    }
+    60% {
+      transform: rotate(-8deg);
+    }
+    80% {
+      transform: rotate(6deg);
+    }
+  }
+
+  @keyframes toast-in {
+    from {
+      opacity: 0;
+      transform: translateY(12px) scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+}
 
 @layer components {
   .container {
-    @apply md:pl-60 p-5 ;
-  font-family: "Poppins", sans-serif;
+    @apply md:pl-60 px-5 max-w-7xl;
+    font-family: "Poppins", sans-serif;
   }
 }

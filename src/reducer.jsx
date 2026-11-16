@@ -1,32 +1,37 @@
-import data from "./data";
+const clampAmount = (amount) => Math.min(99, Math.max(1, Number(amount) || 1));
 
 const reducer = (state, action) => {
   if (action.type === "REMOVE") {
-    let tempCart = state.cart.filter(
+    const tempCart = state.cart.filter(
       (cartItem) => cartItem.id !== action.payload
     );
     return { ...state, cart: tempCart };
   }
 
   if (action.type === "ADD") {
-    const newCartItem = data.find((item) => item.id === action.payload);
+    const product = action.payload;
 
-    if (!newCartItem) return state; // guard if item not found
+    if (!product || product.id === undefined) return state;
 
-    if (state.cart.some((item) => item.id === newCartItem.id)) {
-      // if item already exists in cart, return current state
-      return state;
+    const existingItem = state.cart.find((item) => item.id === product.id);
+
+    if (existingItem) {
+      const tempCart = state.cart.map((item) =>
+        item.id === product.id
+          ? { ...item, amount: clampAmount(item.amount + 1) }
+          : item
+      );
+      return { ...state, cart: tempCart };
     }
 
-    const updatedCart = [...state.cart, newCartItem]; // create new array
-
-    return { ...state, cart: updatedCart };
+    const newCartItem = { ...product, amount: clampAmount(product.amount || 1) };
+    return { ...state, cart: [...state.cart, newCartItem] };
   }
 
   if (action.type === "INCREASE") {
-    let tempCart = state.cart.map((cartItem) => {
+    const tempCart = state.cart.map((cartItem) => {
       if (cartItem.id === action.payload) {
-        return { ...cartItem, amount: cartItem.amount + 1 };
+        return { ...cartItem, amount: clampAmount(cartItem.amount + 1) };
       }
       return cartItem;
     });
@@ -35,20 +40,20 @@ const reducer = (state, action) => {
   }
 
   if (action.type === "DECREASE") {
-    let tempCart = state.cart
+    const tempCart = state.cart
       .map((cartItem) => {
         if (cartItem.id === action.payload) {
           return { ...cartItem, amount: cartItem.amount - 1 };
         }
         return cartItem;
       })
-      .filter((cartItem) => cartItem.amount !== 0);
+      .filter((cartItem) => cartItem.amount > 0);
 
     return { ...state, cart: tempCart };
   }
-// Get total price of items in the cart
+
   if (action.type === "GET_TOTALS") {
-    let { subtotal, noOfItems } = state.cart.reduce(
+    const { subtotal, noOfItems } = state.cart.reduce(
       (cartTotal, cartItem) => {
         const { amount, price } = cartItem;
         cartTotal.noOfItems += amount;
@@ -58,19 +63,40 @@ const reducer = (state, action) => {
       { subtotal: 0, noOfItems: 0 }
     );
 
-    subtotal = parseFloat(subtotal.toFixed(2));
-    return { ...state, noOfItems, subtotal };
+    return {
+      ...state,
+      noOfItems,
+      subtotal: parseFloat(subtotal.toFixed(2)),
+    };
   }
 
   if (action.type === "LOADING") {
     return { ...state, loading: true };
   }
 
-  if (action.type === "DISPLAY_ITEMS") {
-    return { ...state, cart: action.payload, loading: false };
+  if (action.type === "STOP_LOADING") {
+    return { ...state, loading: false };
   }
 
-  throw new Error(" No matching dispatch");
+  if (action.type === "HYDRATE") {
+    return {
+      ...state,
+      cart: Array.isArray(action.payload) ? action.payload : [],
+      loading: false,
+    };
+  }
+
+  if (action.type === "CLEAR") {
+    return {
+      ...state,
+      cart: [],
+      subtotal: 0,
+      noOfItems: 0,
+      loading: false,
+    };
+  }
+
+  throw new Error(`No matching dispatch: ${action.type}`);
 };
 
 export default reducer;

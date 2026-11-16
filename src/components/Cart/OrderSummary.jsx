@@ -1,8 +1,11 @@
-import { useGlobalContext } from "../../context";
+import { useGlobalContext } from "../../useGlobalContext.js";
+import { useAuth } from "../../auth/useAuth.js";
 import Button from "../Shared/Button";
+import { formatNaira } from "../../utils/format.js";
 
 const OrderSummary = () => {
-  const { subtotal } = useGlobalContext();
+  const { subtotal, notify } = useGlobalContext();
+  const { isAuthenticated, openAuth } = useAuth();
   const deliveryFee = 4500; // Example delivery fee
   const total = subtotal + deliveryFee;
   return (
@@ -20,11 +23,11 @@ const OrderSummary = () => {
         <div className="mb-4">
           <p className="flex justify-between mb-2">
             <span>Subtotal:</span>
-            <span> ₦ {subtotal}</span>
+            <span>{formatNaira(subtotal)}</span>
           </p>
           <p className="flex justify-between mb-2">
             <span>Delivery:</span>
-            <span>₦ {deliveryFee}</span>
+            <span>{formatNaira(deliveryFee)}</span>
           </p>
           <label>PromoCode: </label>
           <input
@@ -38,13 +41,23 @@ const OrderSummary = () => {
         <div>
           <p className="flex justify-between mb-2">
             <span>Total:</span>
-            <span> ₦ {total}</span>{" "}
+            <span>{formatNaira(total)}</span>{" "}
           </p>
           <div className="flex justify-end items-center">
             <Button
               text="Check out"
               bgColor="bg-[#1ABC9C]/50"
               textColor={`text-[#CED4DA] dark:text-gray-800/70 `}
+              handler={() => {
+                if (!isAuthenticated) {
+                  openAuth("login", {
+                    notice: "Sign in before checking out.",
+                  });
+                  return;
+                }
+
+                notify("Checkout is coming soon.");
+              }}
             />
           </div>
         </div>

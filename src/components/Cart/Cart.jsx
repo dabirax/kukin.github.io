@@ -1,5 +1,5 @@
 
-import { useGlobalContext } from "../../context";
+import { useGlobalContext } from "../../useGlobalContext.js";
 import { FaTimes } from "react-icons/fa";
 import CartItems from "./CartItems";
 import { CartIcon } from "../Navbar/RightBar/cartIcon";

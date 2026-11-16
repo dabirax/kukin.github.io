@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-
-import { CgDarkMode } from "react-icons/cg";
+import { useEffect, useState } from "react";
 import { MdOutlineDarkMode } from "react-icons/md";
 export function Theme() {
   const [theme, setTheme] = useState(() => {
