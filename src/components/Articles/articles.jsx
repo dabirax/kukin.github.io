@@ -92,7 +92,6 @@ const Articles = () => {
     error,
     nextError,
     hasMore,
-    total,
     loadMore,
     retry,
     updateArticle,

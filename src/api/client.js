@@ -10,6 +10,45 @@ export const API_BASE = (
 
 const DEFAULT_TIMEOUT = 30000;
 
+const STATUS_MESSAGES = {
+  400: "The request could not be processed. Please check your details.",
+  401: "Please sign in to continue.",
+  403: "You do not have permission to do that.",
+  404: "This page or resource could not be found.",
+  408: "The request took too long. Please try again.",
+  409: "That action conflicts with something that already exists.",
+  429: "Too many requests. Please wait a moment and try again.",
+  500: "The server had a problem. Please try again.",
+  502: "The server is temporarily unavailable. Please try again.",
+  503: "The service is temporarily unavailable. Please try again.",
+  504: "The server took too long to respond. Please try again.",
+};
+
+const looksLikeHtml = (value) =>
+  typeof value === "string" &&
+  /<!doctype|<html|<head|<body|Cannot (GET|POST|PUT|PATCH|DELETE)/i.test(
+    value
+  );
+
+const extractMessage = (payload, status) => {
+  if (payload && typeof payload === "object") {
+    const message = String(payload.message || "").trim();
+
+    if (message) return message;
+  }
+
+  if (typeof payload === "string") {
+    const text = payload.trim();
+
+    if (text && !looksLikeHtml(text)) return text;
+  }
+
+  return (
+    STATUS_MESSAGES[status] ||
+    `Request failed with status ${status || "unknown"}`
+  );
+};
+
 export class ApiError extends Error {
   constructor(message, { status = 0, code = "", errors = null, payload = null } = {}) {
     super(message);
@@ -62,10 +101,7 @@ export const request = async (
       : await response.text();
 
     if (!response.ok) {
-      const message =
-        (payload && payload.message) ||
-        (typeof payload === "string" && payload) ||
-        `Request failed with status ${response.status}`;
+      const message = extractMessage(payload, response.status);
 
       const error = new ApiError(message, {
         status: response.status,
