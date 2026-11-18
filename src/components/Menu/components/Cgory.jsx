@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { ArrowLeft, Heart, CirclePlus, Check } from "lucide-react";
+import { useParams } from "react-router-dom";
+import { Heart, CirclePlus, Check } from "lucide-react";
 import { useGlobalContext } from "../../../useGlobalContext.js";
 import { CATEGORY_LABELS, useProducts } from "../../../hooks/useProducts.js";
 import { formatNaira } from "../../../utils/format.js";
+import BackButton from "../../Shared/BackButton.jsx";
 
 const Category = () => {
   const { category } = useParams();
@@ -28,16 +29,6 @@ const Category = () => {
       setJustAdded((current) => (current === item.id ? null : current));
     }, 1200);
   };
-
-  const backButton = (
-    <Link
-      to="/menu"
-      aria-label="Back to menu"
-      className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#1ABC9C] text-[#1ABC9C] transition hover:bg-[#1ABC9C]/10 active:scale-95"
-    >
-      <ArrowLeft className="h-5 w-5" />
-    </Link>
-  );
 
   if (loading) {
     return (
@@ -76,7 +67,7 @@ const Category = () => {
   return (
     <div className="container text-[#CED4DA]">
       <div className="mb-6 flex items-center gap-4">
-        {backButton}
+        <BackButton to="/menu" label="Back to menu" />
         <h1 className="text-3xl font-bold xl:text-4xl">{title}</h1>
       </div>
 

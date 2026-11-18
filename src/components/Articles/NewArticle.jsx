@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
-  ArrowLeft,
   Camera,
   CheckCircle2,
   ImagePlus,
@@ -15,6 +14,7 @@ import {
 } from "../../api/articles.js";
 import { useGlobalContext } from "../../useGlobalContext.js";
 import { ARTICLE_CATEGORIES } from "./constants.js";
+import BackButton from "../Shared/BackButton.jsx";
 
 const initialForm = {
   title: "",
@@ -192,21 +192,17 @@ const NewArticle = () => {
     <div className="container pb-10 text-[#CED4DA]">
       <div className="mx-auto max-w-5xl">
         <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
-          <div>
-            <Link
-              to="/articles"
-              className="inline-flex items-center gap-2 text-sm font-bold text-[#1ABC9C] hover:underline"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              Back to articles
-            </Link>
-            <h1 className="mt-2 text-3xl font-extrabold sm:text-4xl">
-              Write a new article
-            </h1>
-            <p className="mt-1 text-sm text-[#CED4DA]/60">
-              Share a recipe, a nutrition guide, or a food safety tip with the
-              Kukin community.
-            </p>
+          <div className="flex items-center gap-4">
+            <BackButton to="/articles" label="Back to articles" />
+            <div>
+              <h1 className="text-3xl font-extrabold sm:text-4xl">
+                Write a new article
+              </h1>
+              <p className="mt-1 text-sm text-[#CED4DA]/60">
+                Share a recipe, a nutrition guide, or a food safety tip with the
+                Kukin community.
+              </p>
+            </div>
           </div>
         </div>
 

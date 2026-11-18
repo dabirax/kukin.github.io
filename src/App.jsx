@@ -15,37 +15,66 @@ import Category from "./components/Menu/components/Cgory";
 import Cart from "./components/Cart/Cart";
 import Toaster from "./components/Shared/Toaster";
 import AuthModal from "./components/Auth/AuthModal";
+import Footer from "./components/Shared/Footer";
 
 function App() {
   return (
-    <>
-      <div
-        
-        className="min-h-screen bg-slate-800 dark:bg-[#05010f] relative"
-      >
-        <Navbar profile={profile} />
+    <div className="relative min-h-screen bg-slate-800 dark:bg-[#05010f]">
+      <Navbar profile={profile} />
+
+      <main>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="menu" element={<Menu />} />
-
           <Route
             path="/menu/category"
             element={<Navigate to="/menu" replace />}
           />
           <Route path="/menu/:category" element={<Category />} />
-
           <Route path="articles" element={<Articles />} />
-          <Route path="articles/saved" element={<RequireAuth title="Sign in to view saved articles" description="Save articles you love and come back to them on any device."><SavedArticles /></RequireAuth>} />
-          <Route path="articles/mine" element={<RequireAuth title="Sign in to manage your articles" description="Create drafts, publish articles, and keep track of everything you have written."><MyArticles /></RequireAuth>} />
-          <Route path="articles/new" element={<RequireAuth title="Sign in to write an article" description="Share a recipe, nutrition guide, or food safety tip with the Kukin community."><NewArticle /></RequireAuth>} />
+          <Route
+            path="articles/saved"
+            element={
+              <RequireAuth
+                title="Sign in to view saved articles"
+                description="Save articles you love and come back to them on any device."
+              >
+                <SavedArticles />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="articles/mine"
+            element={
+              <RequireAuth
+                title="Sign in to manage your articles"
+                description="Create drafts, publish articles, and keep track of everything you have written."
+              >
+                <MyArticles />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="articles/new"
+            element={
+              <RequireAuth
+                title="Sign in to write an article"
+                description="Share a recipe, nutrition guide, or food safety tip with the Kukin community."
+              >
+                <NewArticle />
+              </RequireAuth>
+            }
+          />
           <Route path="articles/:slug" element={<ArticleDetail />} />
           <Route path="settings" element={<Settings />} />
         </Routes>
-        <Cart />
-        <AuthModal />
-        <Toaster />
-      </div>
-    </>
+      </main>
+
+      <Footer />
+      <Cart />
+      <AuthModal />
+      <Toaster />
+    </div>
   );
 }
 

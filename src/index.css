@@ -11,6 +11,16 @@ html {
 @theme {
   --animate-shake: shake 0.5s ease-in-out;
   --animate-toast-in: toast-in 0.3s ease-out;
+  --animate-hero-spin: hero-spin 24s linear infinite;
+
+  @keyframes hero-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
 
   @keyframes shake {
     0%,

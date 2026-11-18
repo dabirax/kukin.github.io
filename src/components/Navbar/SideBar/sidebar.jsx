@@ -59,7 +59,7 @@ export function Sidebar({ profile }) {
         </div>
 
         <NavOptions />
-        <Handles />
+        <Handles className="mt-16 justify-center" />
         <div className="text-center flex justify-center mt-2">
           <div className="flex font-serif italic text-[#F39C12] text-2xl">
             KUKIN

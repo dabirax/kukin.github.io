@@ -22,7 +22,6 @@ import ArticleEmptyState from "./ArticleEmptyState.jsx";
 import ArticleFilters from "./ArticleFilters.jsx";
 import ArticleSearchBar from "./ArticleSearchBar.jsx";
 import ArticleSkeletonGrid from "./ArticleSkeleton.jsx";
-import FeaturedArticle from "./FeaturedArticle.jsx";
 import { ARTICLE_PAGE_SIZE } from "./constants.js";
 
 const Articles = () => {
@@ -133,7 +132,7 @@ const Articles = () => {
 
   return (
     <div className="container pb-10 text-[#CED4DA]">
-      <div className="mb-8 flex flex-col gap-1 lg:flex-row lg:items-end lg:justify-between">
+      <div className="mb-4 flex flex-col gap-1 lg:flex-row lg:items-end lg:justify-between">
         <div>
          
           <h1 className=" text-3xl font-extrabold sm:text-4xl">
@@ -166,7 +165,7 @@ const Articles = () => {
         </div>
       </div>
 
-      <div className="space-y-4 rounded-3xl bg-[#1E1E2F]/60 p-4 ring-1 ring-white/10 sm:p-5">
+      <div className="space-y-4 rounded-3xl bg-[#1E1E2F]/60 p-3 ring-1 ring-white/10 sm:p-4">
         <ArticleSearchBar
           value={searchInput}
           onChange={setSearchInput}
@@ -181,7 +180,7 @@ const Articles = () => {
         />
       </div>
 
-      <div className="mt-5 flex items-center justify-between gap-4">
+      <div className="mt-3 flex items-center justify-between gap-4">
         <p
           className="text-sm text-[#CED4DA]/50"
           aria-live="polite"
@@ -203,13 +202,7 @@ const Articles = () => {
       </div>
 
       <div className="mt-5 space-y-8">
-        {showFeatured ? (
-          <FeaturedArticle
-            article={featured}
-            onLike={toggleLike}
-            onSave={toggleSave}
-          />
-        ) : null}
+      
 
         {loading ? (
           <ArticleSkeletonGrid count={6} />

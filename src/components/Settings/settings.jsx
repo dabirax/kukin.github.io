@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import AuthField from "../Auth/AuthField.jsx";
 import AuthNotice from "../Auth/AuthNotice.jsx";
+import BackButton from "../Shared/BackButton.jsx";
 import { useAuth } from "../../auth/useAuth.js";
 import { useGlobalContext } from "../../useGlobalContext.js";
 
@@ -187,11 +188,11 @@ const Settings = () => {
   return (
     <div className="container pb-8 text-[#CED4DA]">
       <div className="mx-auto max-w-5xl">
-        <div className="mb-6">
-          <h1 className="text-3xl font-extrabold sm:text-4xl">Account settings</h1>
-          <p className="mt-1 text-sm text-[#CED4DA]/60">
-            Manage how you appear on Kukin and keep your account secure.
-          </p>
+        <div className="mb-6 flex items-center gap-4">
+          <BackButton label="Go back" />
+          <div>
+            <h1 className="text-3xl font-extrabold sm:text-4xl">Account settings</h1>
+                     </div>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">

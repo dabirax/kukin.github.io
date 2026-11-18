@@ -63,10 +63,6 @@ const ArticleCard = ({
           </h2>
         </Link>
 
-        <p className="mt-2 line-clamp-3 text-sm leading-6 text-[#CED4DA]/60">
-          {article.excerpt}
-        </p>
-
         <div className="mt-4 flex items-center gap-3 text-xs text-[#CED4DA]/50">
           <span className="inline-flex items-center gap-1.5">
             <Clock aria-hidden="true" className="h-4 w-4" />

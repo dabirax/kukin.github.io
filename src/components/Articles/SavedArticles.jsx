@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Bookmark, Loader2 } from "lucide-react";
+import { Bookmark, Loader2 } from "lucide-react";
 import { useArticles } from "../../hooks/useArticles.js";
 import { useArticleActions } from "../../hooks/useArticleActions.js";
 import { useInfiniteScroll } from "../../hooks/useInfiniteScroll.js";
@@ -8,6 +8,7 @@ import ArticleCard from "./ArticleCard.jsx";
 import ArticleEmptyState from "./ArticleEmptyState.jsx";
 import ArticleSkeletonGrid from "./ArticleSkeleton.jsx";
 import { ARTICLE_PAGE_SIZE } from "./constants.js";
+import BackButton from "../Shared/BackButton.jsx";
 
 const SavedArticles = () => {
   const {
@@ -50,22 +51,18 @@ const SavedArticles = () => {
 
   return (
     <div className="container pb-10 text-[#CED4DA]">
-      <div className="mb-6">
-        <Link
-          to="/articles"
-          className="inline-flex items-center gap-2 text-sm font-bold text-[#1ABC9C] hover:underline"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          All articles
-        </Link>
-        <h1 className="mt-2 text-3xl font-extrabold sm:text-4xl">
-          Saved articles
-        </h1>
-        <p className="mt-1 text-sm text-[#CED4DA]/60" aria-live="polite">
-          {loading
-            ? "Loading your saved articles..."
-            : `${total} saved ${total === 1 ? "article" : "articles"}`}
-        </p>
+      <div className="mb-6 flex items-center gap-4">
+        <BackButton to="/articles" label="Back to articles" />
+        <div>
+          <h1 className="text-3xl font-extrabold sm:text-4xl">
+            Saved articles
+          </h1>
+          <p className="mt-1 text-sm text-[#CED4DA]/60" aria-live="polite">
+            {loading
+              ? "Loading your saved articles..."
+              : `${total} saved ${total === 1 ? "article" : "articles"}`}
+          </p>
+        </div>
       </div>
 
       {loading ? (

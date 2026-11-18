@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  ArrowLeft,
   FileText,
   Loader2,
   Plus,
@@ -17,6 +16,7 @@ import ArticleCard from "./ArticleCard.jsx";
 import ArticleEmptyState from "./ArticleEmptyState.jsx";
 import ArticleSkeletonGrid from "./ArticleSkeleton.jsx";
 import { ARTICLE_PAGE_SIZE } from "./constants.js";
+import BackButton from "../Shared/BackButton.jsx";
 
 const statusFilters = [
   { value: "all", label: "All" },
@@ -106,22 +106,18 @@ const MyArticles = () => {
   return (
     <div className="container pb-10 text-[#CED4DA]">
       <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          <Link
-            to="/articles"
-            className="inline-flex items-center gap-2 text-sm font-bold text-[#1ABC9C] hover:underline"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            All articles
-          </Link>
-          <h1 className="mt-2 text-3xl font-extrabold sm:text-4xl">
-            My articles
-          </h1>
-          <p className="mt-1 text-sm text-[#CED4DA]/60" aria-live="polite">
-            {loading
-              ? "Loading your articles..."
-              : `${total} ${total === 1 ? "article" : "articles"}`}
-          </p>
+        <div className="flex items-center gap-4">
+          <BackButton to="/articles" label="Back to articles" />
+          <div>
+            <h1 className="text-3xl font-extrabold sm:text-4xl">
+              My articles
+            </h1>
+            <p className="mt-1 text-sm text-[#CED4DA]/60" aria-live="polite">
+              {loading
+                ? "Loading your articles..."
+                : `${total} ${total === 1 ? "article" : "articles"}`}
+            </p>
+          </div>
         </div>
 
         <Link

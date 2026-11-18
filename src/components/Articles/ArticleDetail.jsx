@@ -1,7 +1,6 @@
 import { useCallback, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import {
-  ArrowLeft,
   Bookmark,
   CalendarDays,
   Clock,
@@ -19,6 +18,7 @@ import { formatCount, formatDate } from "../../utils/format.js";
 import { getCategoryStyle } from "./constants.js";
 import RelatedArticles from "./RelatedArticles.jsx";
 import ReportArticleDialog from "./ReportArticleDialog.jsx";
+import BackButton from "../Shared/BackButton.jsx";
 
 const DetailSkeleton = () => (
   <div className="container animate-pulse pb-10">
@@ -118,13 +118,7 @@ const ArticleDetail = () => {
   return (
     <div className="container pb-10 text-[#CED4DA]">
       <div className="mb-5 flex items-center justify-between gap-4">
-        <Link
-          to="/articles"
-          className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm font-bold text-[#CED4DA]/70 transition hover:border-[#1ABC9C]/40 hover:text-[#1ABC9C]"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          All articles
-        </Link>
+        <BackButton to="/articles" label="Back to articles" />
 
         <div className="flex items-center gap-2">
           <button
