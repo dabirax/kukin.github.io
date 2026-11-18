@@ -41,7 +41,7 @@ const AppProvider = ({ children }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const openCart = () => setIsCartOpen(true);
+  const openCart = useCallback(() => setIsCartOpen(true), []);
   const closeCart = () => setIsCartOpen(false);
 
   const openSidebar = () => setIsSidebarOpen(true);
@@ -49,6 +49,9 @@ const AppProvider = ({ children }) => {
 
   const [toasts, setToasts] = useState([]);
   const [cartBump, setCartBump] = useState(0);
+  const [syncedCartKey, setSyncedCartKey] = useState("");
+  const [cartSyncError, setCartSyncError] = useState("");
+  const [syncRetry, setSyncRetry] = useState(0);
 
   const dismissToast = useCallback((id) => {
     setToasts((prev) => prev.filter((toast) => toast.id !== id));
@@ -79,6 +82,56 @@ const AppProvider = ({ children }) => {
   const lastSyncedRef = useRef("");
   const hydratingRef = useRef(false);
 
+  const clearCartLocal = useCallback(() => {
+    const emptyKey = cartSignature([]);
+    dispatch({ type: "CLEAR" });
+    lastSyncedRef.current = emptyKey;
+    setSyncedCartKey(emptyKey);
+    setCartSyncError("");
+  }, []);
+
+  const retryCartSync = useCallback(() => {
+    lastSyncedRef.current = "";
+    setCartSyncError("");
+    setSyncRetry((value) => value + 1);
+  }, []);
+
+  const reorder = useCallback(
+    async (items) => {
+      const products = (Array.isArray(items) ? items : [])
+        .map((item) => ({
+          productId: Number(item?.productId ?? item?.id),
+          amount: Number(item?.amount),
+        }))
+        .filter(
+          (item) =>
+            Number.isInteger(item.productId) &&
+            item.productId > 0 &&
+            Number.isFinite(item.amount) &&
+            item.amount >= 1
+        );
+
+      if (products.length === 0) {
+        notify("This order has no items available to reorder.");
+        return false;
+      }
+
+      const data = await replaceCart(products);
+      const cartItems = Array.isArray(data?.items) ? data.items : [];
+      const signature = cartSignature(cartItems);
+
+      dispatch({ type: "HYDRATE", payload: cartItems });
+      lastSyncedRef.current = signature;
+      setSyncedCartKey(signature);
+      setCartSyncError("");
+      setCartBump((value) => value + 1);
+      openCart();
+      notify("Items from this order are back in your cart.");
+      return true;
+    },
+    [notify, openCart]
+  );
+
   useEffect(() => {
     if (initializing) return undefined;
 
@@ -87,6 +140,8 @@ const AppProvider = ({ children }) => {
     if (!isAuthenticated) {
       lastSyncedRef.current = "";
       hydratingRef.current = false;
+      setSyncedCartKey("");
+      setCartSyncError("");
       dispatch({ type: "CLEAR" });
       return undefined;
     }
@@ -98,7 +153,10 @@ const AppProvider = ({ children }) => {
       .then((data) => {
         if (!active) return;
         const items = Array.isArray(data?.items) ? data.items : [];
-        lastSyncedRef.current = cartSignature(items);
+        const signature = cartSignature(items);
+        lastSyncedRef.current = signature;
+        setSyncedCartKey(signature);
+        setCartSyncError("");
         dispatch({ type: "HYDRATE", payload: items });
       })
       .catch((error) => {
@@ -136,8 +194,11 @@ const AppProvider = ({ children }) => {
       replaceCart(items)
         .then(() => {
           lastSyncedRef.current = signature;
+          setSyncedCartKey(signature);
+          setCartSyncError("");
         })
         .catch((error) => {
+          setCartSyncError(error.message || "Unable to save your cart.");
           if (error.code !== "AUTH_REQUIRED" && error.code !== "AUTH_INVALID") {
             notify(error.message || "Unable to save your cart.");
           }
@@ -145,7 +206,7 @@ const AppProvider = ({ children }) => {
     }, 600);
 
     return () => window.clearTimeout(timer);
-  }, [state.cart, isAuthenticated, initializing, notify]);
+  }, [state.cart, isAuthenticated, initializing, notify, syncRetry]);
 
   const removeItem = useCallback((id) => {
     dispatch({ type: "REMOVE", payload: id });
@@ -194,11 +255,17 @@ const AppProvider = ({ children }) => {
       notify,
       dismissToast,
       cartBump,
+      clearCartLocal,
+      syncedCartKey,
+      cartSyncError,
+      retryCartSync,
+      reorder,
       favorites,
       toggleFavorite,
     }),
     [
       isCartOpen,
+      openCart,
       isSidebarOpen,
       state,
       removeItem,
@@ -209,6 +276,11 @@ const AppProvider = ({ children }) => {
       notify,
       dismissToast,
       cartBump,
+      clearCartLocal,
+      syncedCartKey,
+      cartSyncError,
+      retryCartSync,
+      reorder,
       favorites,
       toggleFavorite,
     ]

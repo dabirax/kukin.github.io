@@ -15,6 +15,9 @@ export function NavOptions() {
       <li className="hover:scale-110 duration-200 hover:text-[#1ABC9C]">
         <Link to="/settings">settings</Link>
       </li>
+      <li className="hover:scale-110 duration-200 hover:text-[#1ABC9C]">
+        <Link to="/orders">orders</Link>
+      </li>
     </ul>
   );
 }

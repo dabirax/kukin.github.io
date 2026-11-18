@@ -11,21 +11,21 @@ const CartItems = () => {
         const { id, name, price, img, amount } = item;
         return (
           <div
-            className="flex justify-between items-center w-full shadow-md p-4"
+            className="flex w-full flex-col gap-3 p-3 shadow-md sm:flex-row sm:items-center sm:justify-between sm:p-4"
             key={id}
           >
-            <div className="flex justify-center items-center gap-4 ">
-              <div>
-                <img
-                  src={img}
-                  alt={name}
-                  className="rounded-full object-cover w-20 h-20"
-                />
-              </div>
-              <div className="flex flex-col justify-center items-start gap-1">
-                <div className="font-semibold text-xl">{name}</div>
+            <div className="flex min-w-0 items-center gap-3">
+              <img
+                src={img}
+                alt={name}
+                className="h-16 w-16 shrink-0 rounded-full object-cover sm:h-20 sm:w-20"
+              />
+              <div className="flex min-w-0 flex-col items-start justify-center gap-1">
+                <div className="break-words text-base font-semibold sm:text-xl">
+                  {name}
+                </div>
                 <div>{formatNaira(price)}</div>
-                <div className="flex justify-between items-center gap-4">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                   <span>
                     <Heart />
                   </span>
@@ -49,7 +49,9 @@ const CartItems = () => {
                 </div>
               </div>
             </div>
-            <div>{formatNaira(amount * price)}</div>
+            <div className="self-end text-right sm:self-auto sm:shrink-0">
+              {formatNaira(amount * price)}
+            </div>
           </div>
         );
       })}

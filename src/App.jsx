@@ -16,6 +16,8 @@ import Cart from "./components/Cart/Cart";
 import Toaster from "./components/Shared/Toaster";
 import AuthModal from "./components/Auth/AuthModal";
 import Footer from "./components/Shared/Footer";
+import PaymentCallback from "./components/Payments/PaymentCallback.jsx";
+import OrderHistory from "./components/Payments/OrderHistory.jsx";
 
 function App() {
   return (
@@ -67,6 +69,28 @@ function App() {
           />
           <Route path="articles/:slug" element={<ArticleDetail />} />
           <Route path="settings" element={<Settings />} />
+          <Route
+            path="payment/callback"
+            element={
+              <RequireAuth
+                title="Sign in to confirm your payment"
+                description="Your payment reference is saved while you sign in."
+              >
+                <PaymentCallback />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="orders"
+            element={
+              <RequireAuth
+                title="Sign in to view your orders"
+                description="Your order history is available to signed-in members."
+              >
+                <OrderHistory />
+              </RequireAuth>
+            }
+          />
         </Routes>
       </main>
 
